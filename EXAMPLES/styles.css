@@ -1,0 +1,18 @@
+#gl-canvas{
+  /*width: 90vw;
+  height: 90vh;*/
+  position = fixed;
+  width = 100%;
+}
+body{
+  overflow: hidden;
+}
+#toolbar{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+#toolbar>button{
+  width: 19.8%;
+  display: inline;
+}
