@@ -90,17 +90,23 @@ window.onload = function init() {
     $("#draw").click();
     gl.clear(gl.COLOR_BUFFER_BIT);
 
-    canvas.addEventListener("touchstart", function(event){
+    canvas3d.addEventListener("touchstart", function(event){
+      var touch = event.touches[0];
+      var xd = touch.pageX-touch.target.offsetLeft;
+      var yd = touch.pageY-touch.target.offsetTop;
         switch (currentMode) {
             case "draw":
                 startDrawing();
                 break;
+
+            case "circle":
+                startCircle(xd, yd);
             default:
 
         }
     });
-    canvas.addEventListener("touchend", function(event){
-      var touch = event.touches[0];
+    canvas3d.addEventListener("touchend", function(event){
+      var touch = event.changedTouches[0];
       var xd = touch.pageX-touch.target.offsetLeft;
       var yd = touch.pageY-touch.target.offsetTop;
         switch (currentMode) {
@@ -109,14 +115,18 @@ window.onload = function init() {
                 break;
 
             case "cube":
-                drawCube(xd, yd);
-                break;
+            drawCube(xd, yd);
+            break;
+
+            case "circle":
+            endCircle();
+            break;
 
             default:
 
         }
     });
-    canvas.addEventListener("touchmove", function(event){
+    canvas3d.addEventListener("touchmove", function(event){
       event.preventDefault();
       if(click){
         var touch = event.touches[0];
@@ -126,6 +136,10 @@ window.onload = function init() {
             case "draw":
             whileDrawing(xd, yd);
                 break;
+
+              case "circle":
+              whileCircle(xd, yd);
+              break;
             default:
 
         }
