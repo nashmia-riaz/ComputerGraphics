@@ -3,16 +3,26 @@
   height: 90vh;*/
   position = fixed;
   width = 100%;
+  z-index: 1;
 }
 body{
   overflow: hidden;
+  box-sizing: border-box;
 }
 #toolbar{
   position: fixed;
   bottom: 0;
+  padding: 10px;
   width: 100vw;
+  background: lightblue;
 }
 #toolbar>button{
-  width: 19.8%;
+  width: 19.5vw;
   display: inline;
+}
+#gl-3d-canvas{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 0;
 }

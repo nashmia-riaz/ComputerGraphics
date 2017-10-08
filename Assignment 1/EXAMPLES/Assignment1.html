@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WebGL canvas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        attribute vec4 vPosition;
+        attribute vec4 vColor;
+        varying vec4 fColor1;
+        void main() {
+            gl_Position = vPosition; fColor1 = vColor;
+        }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+        precision mediump float;
+        varying vec4 fColor1;
+        void main() {
+            gl_FragColor = fColor1;
+        }
+    </script>
+
+    <script id="vertex-shader-cube" type="x-shader/x-vertex">
+        attribute  vec4 vPosition1;
+        attribute  vec4 vColor1;
+        varying vec4 fColor;
+
+        uniform vec3 theta;
+
+        void main()
+        {
+            // Compute the sines and cosines of theta for each of
+            //   the three axes in one computation.
+            vec3 angles = radians( theta );
+            vec3 c = cos( angles );
+            vec3 s = sin( angles );
+
+            // Remeber: thse matrices are column-major
+            mat4 rx = mat4( 1.0,  0.0,  0.0, 0.0,
+                    0.0,  c.x,  s.x, 0.0,
+                    0.0, -s.x,  c.x, 0.0,
+                    0.0,  0.0,  0.0, 1.0 );
+
+            mat4 ry = mat4( c.y, 0.0, -s.y, 0.0,
+                    0.0, 1.0,  0.0, 0.0,
+                    s.y, 0.0,  c.y, 0.0,
+                    0.0, 0.0,  0.0, 1.0 );
+
+
+            mat4 rz = mat4( c.z, -s.z, 0.0, 0.0,
+                    s.z,  c.z, 0.0, 0.0,
+                    0.0,  0.0, 1.0, 0.0,
+                    0.0,  0.0, 0.0, 1.0 );
+
+            fColor = vColor1;
+            gl_Position = rz * ry * rx * vPosition1;
+
+        }
+    </script>
+
+    <script id="fragment-shader-cube" type="x-shader/x-fragment">
+        precision mediump float;
+
+        varying vec4 fColor;
+        // uniform vec4 u_FragColor;
+
+        void
+        main()
+        {
+            gl_FragColor = fColor;
+        }
+    </script>
+
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="../Common/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="Draw.js"></script>
+    <script type="text/javascript" src="Circle.js"></script>
+    <script type="text/javascript" src="Assignment1.js"></script>
+    <script type="text/javascript" src="Cube.js"></script>
+</head>
+<body>
+    <canvas id="gl-3d-canvas">
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+    <canvas id="gl-canvas">
+        Oops ... your browser doesn't support the HTML5 canvas element
+    </canvas>
+
+    <div id="toolbar">
+        <button type="button" id="draw" class="btn btn-default">
+            <i class="fa fa-pencil"></i>
+        </button>
+        <button type="button" class="btn btn-default">
+            <i class="fa fa-square-o"></i>
+        </button>
+        <button type="button" id="circle" class="btn btn-default">
+            <i class="fa fa-circle-thin"></i>
+        </button>
+        <button type="button" class="btn btn-default">
+            <i class="fa fa-tint"></i>
+        </button>
+        <button type="button" id="cube" class="btn btn-default">
+            <i class="fa fa-cube"></i>
+        </button>
+    </div>
+</body>
+
+</html>
