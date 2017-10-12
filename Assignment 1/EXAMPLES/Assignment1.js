@@ -178,12 +178,6 @@ window.onload = function init() {
 
         }
 
-            console.log(index);
-            console.log(lines);
-            console.log(start);
-            console.log(indices);
-            console.log(colors.length);
-            console.log(totalPoints.length);
     });
     canvas3d.addEventListener("mousemove", function(event) {
         if (click) {
@@ -206,6 +200,8 @@ window.onload = function init() {
 
 
 function render() {
+    gl.bindBuffer(gl.ARRAY_BUFFER, cbufferId);
+    gl.bindBuffer(gl.ARRAY_BUFFER, vBuffer);
 // gl.clear( gl.COLOR_BUFFER_BIT );
     for (var i = 0; i < lines + 1; i++) {
         gl.drawArrays(gl.LINE_STRIP, start[i], indices[i]);
