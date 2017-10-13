@@ -57,7 +57,7 @@ function whileCircle(xd, yd){
       var deg = i * twicePi / triangleAmount;
       deg *= Math.PI /180;
       t.push([
-          initialClick[0] + (radiusCircle * Math.cos(i * twicePi / triangleAmount)),
+          initialClick[0] + (radiusCircle * Math.cos(i * twicePi / triangleAmount))/aspectRatio,
           initialClick[1] + (radiusCircle * Math.sin(i * twicePi / triangleAmount))]);
     }
 

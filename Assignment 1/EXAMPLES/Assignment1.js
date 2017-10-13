@@ -28,6 +28,7 @@ var vBuffer2;
 var currentMode;
 var context;
 var totalPoints=[];
+var aspectRatio;
 
 window.onload = function init() {
     canvas = document.getElementById("gl-canvas");
@@ -37,6 +38,7 @@ window.onload = function init() {
     canvas3d = document.getElementById("gl-3d-canvas");
     canvas3d.width = window.innerWidth;
     canvas3d.height = window.innerHeight;
+    aspectRatio = window.innerWidth/window.innerHeight;
 
 
     gl = WebGLUtils.setupWebGL(canvas);

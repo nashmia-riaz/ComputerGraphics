@@ -95,13 +95,13 @@ function drawShape()
         vec4(  radius+centre[0],  centre[1]+height,        centre[2], 1.0 )
     ];
     col = [R, G, B];
-    quad(0,1,2,3);
-    col = [R+0.1, G+0.1, B+0.1];
-    quad(4,5,6,7);
-    col = [R+0.2, G+0.2, B+0.2];
-    quad(0,3,7,4);
+    // quad(0,1,2,3);
+    // col = [R+0.1, G+0.1, B+0.1];
+    // col = [R+0.2, G+0.2, B+0.2];
+    // quad(0,3,7,4);
     col = [R+0.3, G+0.3, B+0.3];
-    quad(0,1,5,4);
+    quad(4,5,6,7);
+    // quad(0,1,5,4);
     col = [R+0.4, G+0.4, B+0.4];
     quad(3,2,6,7);
     col = [R+0.5, G+0.5, B+0.5];
