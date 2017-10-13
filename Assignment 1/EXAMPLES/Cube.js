@@ -40,7 +40,9 @@ function drawCube(x, y){
     bufferId = gl3d.createBuffer();
 
     // vColor = gl3d.getAttribLocation( program, "vColor" );
-    vPosition = gl3d.getAttribLocation( program3d, "vPosition1" );
+    vPosition1 = gl3d.getAttribLocation( program3d, "vPosition1" );
+    gl.vertexAttribPointer(vPosition1, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(vPosition1);
 
     cbuffer = gl3d.createBuffer();
     vColor1 = gl3d.getAttribLocation( program3d, "vColor1" );
