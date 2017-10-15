@@ -45,9 +45,19 @@ body{
 	left: -13px;
 	width: 30px;
 	height: 30px;
-	/*background: url(images/select.png) center;*/
+	background: url(images/select.png) center;
   display: inline;
 }*/
 #colorpicker{
   height: 34px;
+}
+#info{
+  display: fixed;
+  z-index: 1;
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+  padding: 10px;
+}
+h2{
+  font-size: 1.6em;
 }
