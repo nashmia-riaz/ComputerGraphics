@@ -2,6 +2,9 @@
 function startDrawing(){
   click = true;
 
+  R=Math.random();
+  G=Math.random();
+  B=Math.random();
   // vBuffer = gl.createBuffer();
   // gl.bindBuffer(gl.ARRAY_BUFFER, vBuffer);
   // gl.vertexAttribPointer(vPosition, 2, gl.FLOAT, false, 0, 0);
