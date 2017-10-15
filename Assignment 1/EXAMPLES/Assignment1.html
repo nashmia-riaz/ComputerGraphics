@@ -5,8 +5,12 @@
     <title>WebGL canvas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+    <link rel="stylesheet" media="screen" type="text/css" href="css/layout.css" />
+    <link rel="stylesheet" href="styles.css">
+
     <script id="vertex-shader" type="x-shader/x-vertex">
         attribute vec4 vPosition;
         attribute vec4 vColor;
@@ -75,14 +79,20 @@
         }
     </script>
 
+    <script type="text/javascript" src="Draw.js"></script>
+    <script type="text/javascript" src="Circle.js"></script>
+    <script type="text/javascript" src="Line.js"></script>
+    <script type="text/javascript" src="Assignment1.js"></script>
+    <script type="text/javascript" src="Cube.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/colorpicker.js"></script>
+    <script type="text/javascript" src="js/eye.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/layout.js?ver=1.0.2"></script>
     <script type="text/javascript" src="../Common/webgl-utils.js"></script>
     <script type="text/javascript" src="../Common/initShaders.js"></script>
     <script type="text/javascript" src="../Common/MV.js"></script>
     <script type="text/javascript" src="../Common/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="Draw.js"></script>
-    <script type="text/javascript" src="Circle.js"></script>
-    <script type="text/javascript" src="Assignment1.js"></script>
-    <script type="text/javascript" src="Cube.js"></script>
 </head>
 <body>
     <canvas id="gl-3d-canvas" >
@@ -96,14 +106,15 @@
         <button type="button" id="draw" class="btn btn-default">
             <i class="fa fa-pencil"></i>
         </button>
-        <button type="button" class="btn btn-default">
-            <i class="fa fa-square-o"></i>
+        <button type="button" id="line" class="btn btn-default">
+            <i class="fa fa-minus"></i>
         </button>
         <button type="button" id="circle" class="btn btn-default">
             <i class="fa fa-circle-thin"></i>
         </button>
-        <button type="button" class="btn btn-default">
-            <i class="fa fa-tint"></i>
+        <button type="button" id="colorSelector" class="btn btn-default">
+            <!-- <i class="fa fa-tint"></i> -->
+            <div id="colorpicker"><i class="fa fa-tint"></i></div>
         </button>
         <button type="button" id="cube" class="btn btn-default">
             <i class="fa fa-cube"></i>

@@ -9,9 +9,9 @@ var maxNumTriangles = 20000;
 var maxNumVertices = 3 * maxNumTriangles;
 var index = 0;
 
-var R = 0.5,
-    G = 0.4,
-    B = 0.6;
+var R = 1,
+    G = 0,
+    B = 0;
 var colors = [];
 var lines = 0;
 var indices = [];
@@ -29,6 +29,7 @@ var currentMode;
 var context;
 var totalPoints=[];
 var aspectRatio;
+
 
 window.onload = function init() {
     canvas = document.getElementById("gl-canvas");
@@ -88,6 +89,11 @@ window.onload = function init() {
         currentMode="circle";
         // gl.useProgram(program);
     });
+    $("#line").click(function(){
+        // gl.clearColor( 0.9, 0.9, 0.9, 1.0 );
+        currentMode="line";
+        // gl.useProgram(program);
+    });
 
     $("#draw").click();
     gl.clear(gl.COLOR_BUFFER_BIT);
@@ -104,6 +110,10 @@ window.onload = function init() {
             case "circle":
                 startCircle(xd, yd);
             default:
+
+            case "line":
+            startLine(xd, yd);
+            break;
 
         }
     });
@@ -124,6 +134,10 @@ window.onload = function init() {
             endCircle();
             break;
 
+            case "line":
+            endLine(xd, yd);
+            break;
+
             default:
 
         }
@@ -142,6 +156,10 @@ window.onload = function init() {
               case "circle":
               whileCircle(xd, yd);
               break;
+
+              case "line":
+              whileLine(xd, yd);
+              break;
             default:
 
         }
@@ -157,6 +175,11 @@ window.onload = function init() {
 
             case "circle":
                 startCircle(xd, yd);
+                break;
+
+                case "line":
+                startLine(xd, yd);
+                break;
             default:
 
         }
@@ -175,6 +198,10 @@ window.onload = function init() {
 
                 case "circle":
                 endCircle();
+                break;
+
+                case "line":
+                endLine(xd, yd);
                 break;
             default:
 
@@ -195,6 +222,9 @@ window.onload = function init() {
               whileCircle(xd, yd);
               break;
 
+              case "line":
+              whileLine(xd, yd);
+              break;
           }
         }
     });
