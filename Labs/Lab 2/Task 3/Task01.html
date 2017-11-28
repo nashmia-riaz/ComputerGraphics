@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Draw a Point</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<link rel="stylesheet" type="text/css" href="codebase/fonts/font_roboto/roboto.css"/>
+	<link rel="stylesheet" type="text/css" href="codebase/dhtmlxslider.css"/>
+	<script src="codebase/dhtmlxslider.js"></script>
+	<style>
+		#sliderObj, #sliderObj2, #sliderObj3 {
+			width: 160px;
+			height: 30px;
+		}
+		#sliderLink, #sliderLink2, #sliderLink3 {
+			font-size: 11px;
+			font-family: Tahoma;
+		}
+		table.demo_table td {
+			text-align: left;
+			vertical-align: top;
+			padding-right: 10px;
+		}
+
+	</style>
+
+
+
+  </head>
+
+  <body onload="main()" onunload="doOnUnload();">
+    <canvas id="webgl" width="500" height="500">
+    Please use a browser that supports "canvas"
+    </canvas>
+
+	<table cellspacing="0" cellpadding="10" border="10" class="demo_table">
+		<tr>
+			<td><div id="sliderObj"></div></td>
+			<td><input id="sliderLink" type="text"></td>
+
+		</tr>
+	</table>
+	<script id="vertex-shader" type="x-shader/x-vertex">
+		attribute vec4 a_Position;
+		attribute float a_Size;
+		varying vec4 color;
+		void
+		main()
+		{
+		    gl_Position = a_Position;
+
+
+
+			gl_PointSize = a_Size;
+		}
+	</script>
+
+	<script id="fragment-shader" type="x-shader/x-fragment">
+		precision mediump float;
+		uniform vec4 u_FragColor;
+		void
+		main()
+		{
+			//Find the location of the point
+			gl_FragColor = u_FragColor;
+		}
+	</script>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+	<script src="../lib/initShaders.js"></script>
+	<script src="../lib/flatten.js"></script>
+    <script src="Task01.js"></script>
+  </body>
+  </html>
