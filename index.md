@@ -15,4 +15,4 @@ This repo is for the Computer Graphics course at SEECS. You can find the full re
 - [Lab 6](https://github.com/nashmia-riaz/ComputerGraphics/Labs/Lab%206) - [Live Task 1](https://nashmia-riaz.github.io/ComputerGraphics/Labs/Lab%206/code/Lab%206%20-%201.html)- [Live Task 2](https://nashmia-riaz.github.io/ComputerGraphics/Labs/Lab%206/code/Lab%206%20-%202.html)
 - [Lab 7](https://github.com/nashmia-riaz/ComputerGraphics/Labs/Lab%207) - [Live](https://nashmia-riaz.github.io/ComputerGraphics/Labs/Lab%207/code/Lab%207.html)
 - [Lab 8](https://github.com/nashmia-riaz/ComputerGraphics/Labs/Lab%208) - [Live](https://nashmia-riaz.github.io/ComputerGraphics/Labs/Lab%208/code/lab8.html)
-- [Lab 9](https://github.com/nashmia-riaz/ComputerGraphics/Labs/Lab%209)  [Live](https://nashmia-riaz.github.io/ComputerGraphics/Labs/Lab%209/code/Lab9.html)
+- [Lab 9](https://github.com/nashmia-riaz/ComputerGraphics/Labs/Lab%209) - [Live](https://nashmia-riaz.github.io/ComputerGraphics/Labs/Lab%209/code/Lab%209.html)
